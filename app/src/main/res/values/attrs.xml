@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GaugeCircleView">
+        <attr name="TicksCount" format="integer" />
+        <attr name="ValueMin" format="integer" />
+        <attr name="ValueMax" format="integer"/>
+        <attr name="Value" format="float"/>
+    </declare-styleable>
+
+</resources>

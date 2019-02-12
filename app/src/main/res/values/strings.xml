@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BoatDashboard</string>
+    <string name="gauge_analog">GaugeAnalog</string>
+</resources>
