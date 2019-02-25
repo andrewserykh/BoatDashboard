@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="GaugeCircleView">
+        <attr name="fontSizeScale" format="integer"/>
+        <attr name="fontSizeValue" format="integer"/>
+        <attr name="colorScale" format="color"/>
+        <attr name="colorValue" format="color"/>
         <attr name="TicksCount" format="integer" />
         <attr name="ValueMin" format="integer" />
         <attr name="ValueMax" format="integer"/>
         <attr name="Value" format="float"/>
+        <attr name="ValueShow" format="boolean"/>
+        <attr name="Text" format="string"/>
     </declare-styleable>
 
 </resources>

@@ -1,5 +1,6 @@
 package ru.nextflight.boatdashboard;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,20 +10,27 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
-    TextView tValue;
     Button btnValue;
     GaugeCircleView gaugeSpeed;
+    GaugeCircleView gaugeRpm;
+    GaugeCircleView gaugeFuel;
+    GaugeCircleView gaugeOil;
+    GaugeCircleView gaugeTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tValue = (TextView) findViewById(R.id.tValue);
         btnValue = (Button) findViewById(R.id.btnValue);
         gaugeSpeed = (GaugeCircleView) findViewById(R.id.gaugeSpeed);
+
+        gaugeRpm = (GaugeCircleView) findViewById(R.id.gaugeRpm);
+        gaugeFuel = (GaugeCircleView) findViewById(R.id.gaugeFuel);
+        gaugeOil = (GaugeCircleView) findViewById(R.id.gaugeOil);
+        gaugeTemp = (GaugeCircleView) findViewById(R.id.gaugeTemp);
 
 
 //        ImageView gaugeImageView = (ImageView) findViewById(R.id.gauge_analog);
@@ -32,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnValue_onClick(View view){
 
-        tValue.setText("SET 45");
         gaugeSpeed.setValue(25);
+        gaugeFuel.setValue(0);
+        gaugeRpm.setValue(70);
+        gaugeOil.setValue(50);
+        gaugeTemp.setValue(130);
 
     }
 }

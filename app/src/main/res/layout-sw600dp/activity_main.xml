@@ -9,11 +9,11 @@
 
     <ru.nextflight.boatdashboard.GaugeCircleView
         android:id="@+id/gaugeSpeed"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="68dp"
         app:Text="MPH"
         app:TicksCount="7"
         app:Value="0"
@@ -25,13 +25,15 @@
         app:fontSizeScale="20"
         app:fontSizeValue="70"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/gaugeFuel" />
 
     <ru.nextflight.boatdashboard.GaugeCircleView
         android:id="@+id/gaugeRpm"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         app:Text="RPM x100"
         app:TicksCount="8"
         app:Value="0"
@@ -42,14 +44,15 @@
         app:colorValue="@android:color/white"
         app:fontSizeScale="20"
         app:fontSizeValue="70"
-        app:layout_constraintStart_toStartOf="@+id/gaugeSpeed"
-        app:layout_constraintTop_toBottomOf="@+id/gaugeSpeed" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gaugeFuel" />
 
     <ru.nextflight.boatdashboard.GaugeCircleView
         android:id="@+id/gaugeFuel"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:Text="FUEL"
@@ -62,14 +65,16 @@
         app:colorValue="@android:color/white"
         app:fontSizeScale="15"
         app:fontSizeValue="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/gaugeRpm"
+        app:layout_constraintStart_toEndOf="@+id/gaugeSpeed"
+        tools:layout_editor_absoluteY="11dp" />
 
     <ru.nextflight.boatdashboard.GaugeCircleView
         android:id="@+id/gaugeOil"
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         app:Text="PSI"
         app:TicksCount="3"
         app:Value="100"
@@ -80,16 +85,16 @@
         app:colorValue="@android:color/white"
         app:fontSizeScale="15"
         app:fontSizeValue="10"
-        app:layout_constraintEnd_toEndOf="@+id/gaugeFuel"
-        app:layout_constraintTop_toBottomOf="@+id/gaugeFuel" />
+        app:layout_constraintBottom_toTopOf="@+id/gaugeTemp"
+        app:layout_constraintStart_toStartOf="@+id/gaugeFuel"
+        app:layout_constraintTop_toBottomOf="@+id/gaugeFuel"
+        app:layout_constraintVertical_bias="0.571" />
 
     <ru.nextflight.boatdashboard.GaugeCircleView
         android:id="@+id/gaugeTemp"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="16dp"
         app:Text="TEMP"
         app:TicksCount="3"
         app:Value="120"
@@ -100,8 +105,8 @@
         app:colorValue="@android:color/white"
         app:fontSizeScale="15"
         app:fontSizeValue="30"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gaugeOil" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gaugeOil" />
 
     <Button
         android:id="@+id/btnValue"
@@ -111,7 +116,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="68dp"
         android:onClick="btnValue_onClick"
-        android:text="Button"
+        android:text="TEST"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
