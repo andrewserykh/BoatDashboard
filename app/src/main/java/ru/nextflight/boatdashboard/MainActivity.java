@@ -1,16 +1,20 @@
 package ru.nextflight.boatdashboard;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.WebSocket;
+
 
 public class MainActivity extends Activity {
+
+    private OkHttpClient httpClient;
+    private Request httpRequest;
+    private WebSocketClass wsClass;
+    private WebSocket wsClient;
 
     Button btnValue;
     GaugeCircleView gaugeSpeed;
@@ -32,13 +36,36 @@ public class MainActivity extends Activity {
         gaugeOil = (GaugeCircleView) findViewById(R.id.gaugeOil);
         gaugeTemp = (GaugeCircleView) findViewById(R.id.gaugeTemp);
 
+        httpClient = new OkHttpClient.Builder()
+                .build();
+
+        httpRequest = new Request.Builder()
+                .url("wss://echo.websocket.org")
+                .build();
+
+        //WebSocketClass wsc = new WebSocketClass();
+        //WebSocket ws = client.newWebSocket(request, wsc);
+
+        wsClass = new WebSocketClass();
+        wsClient = httpClient.newWebSocket(httpRequest, wsClass);
+
 
 //        ImageView gaugeImageView = (ImageView) findViewById(R.id.gauge_analog);
 //        Animation gaugeTurnAnimation = AnimationUtils.loadAnimation(this, R.anim.gauge_analog_turn);
 //        gaugeImageView.startAnimation(gaugeTurnAnimation);
     }
 
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        httpClient.dispatcher().executorService().shutdown();
+
+    }
+
     public void btnValue_onClick(View view){
+
+        wsClient.send("clicked");
 
         gaugeSpeed.setValue(25);
         gaugeFuel.setValue(0);
